@@ -14,13 +14,28 @@ let quotes = [
 // 1) loop through the movie quotes and write them to the output (with Tailwind)
 // 2) refactor into cleaner, easier-to-understand functions
 
+let outputElement = document.querySelector('.output') {
+
+
+for (let i = 0; i < quotes.length ; i++) {
+  // console.log(`hey, index is: ${i}`)
+  let quote = quotes[i]
+  console.log(quote)
+  
+  let outputElement = document.querySelector('.output')
+  outputElement.insertAdjacentHTML('beforeend', 'Hello!')
+
+})
+
+
+outputElement.insertAdjacentElement('beforeend', 
+<h1>${quote}</h1>
+)
+
+}
 // EventTarget.addEventListener(type, listener)
 // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 
 // Element.insertAdjacentHTML(position, text)
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML
 
-window.addEventListener('DOMContentLoaded', function() {
-  let outputElement = document.querySelector('.output')
-  outputElement.insertAdjacentHTML('beforeend', 'Hello!')
-})
