@@ -12,17 +12,8 @@
 
 // 🔥 define your renderProduct function here
 
-async function pageLoaded() {
-  let response = await fetch('https://kiei451.com/api/products.json')
-  let json = await response.json()
-
-  // writes the returned JSON to the console
-  console.log(json)
-
-  for (let i=0; i < json.products.length ; i++) {
-    let product = json.products[i]
-    let outputElement = document.querySelector('.products')
-    outputElement.insertAdjacentHTML('beforeend',` 
+function renderProduct(product){
+  document.querySelector('.products').insertAdjacentHTML('beforeend',` 
     <div class="p-4 w-full md:w-1/2 lg:w-1/3">
           <div class="border h-full p-4 flex flex-col">
             <h2 class="text-lg font-bold mb-4">${product.name}</h2>
@@ -32,6 +23,21 @@ async function pageLoaded() {
           </div>
     </div>
     `)
+}
+
+
+
+
+async function pageLoaded() {
+  let response = await fetch('https://kiei451.com/api/products.json')
+  let json = await response.json()
+
+  // writes the returned JSON to the console
+  console.log(json)
+
+  for (let i=0; i < json.products.length ; i++) {
+    let eachProduct = json.products[i]
+    renderProduct(eachProduct)
   }
 
 
